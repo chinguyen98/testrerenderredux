@@ -1,23 +1,33 @@
 import logo from './logo.svg';
 import './App.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { increaseAction } from './reducer/app/app.action';
+import Test from './components/Test';
+import MiniTest from './components/MiniTest';
+import useConnectWsk from './useConnectWsk';
+import useTest from './hooks/useTest';
 
 function App() {
+  console.log('app rerender')
+  // const { count } = useSelector(state => state.app);
+
+  const dispatch = useDispatch();
+
+  const { wskData, turnOnWsk, turnoffWsk } = useConnectWsk()
+
+  // useTest();
+
+  const handleClick = () => {
+    dispatch(increaseAction())
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <button onClick={handleClick}>Click</button>
+      <button onClick={() => { turnOnWsk() }}>Turn on wsk</button>
+      <button onClick={turnoffWsk}>Turn off wsk</button>
+      <Test wskData={wskData} />
+      <MiniTest />
     </div>
   );
 }
