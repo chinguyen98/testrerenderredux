@@ -6,18 +6,18 @@ import Test from './components/Test';
 import MiniTest from './components/MiniTest';
 import useConnectWsk from './useConnectWsk';
 import useTest from './hooks/useTest';
-import { increaseThreeAction } from './reducer/tada/tada.action';
+import { increaseThreeAction, testOlaAction } from './reducer/tada/tada.action';
 
 function App() {
   console.log('app rerender')
-  const count = useSelector(state => state.app.count);
-  const { countTwo } = useSelector(state => state.app);
-  const app = useSelector(state => state.app);
-  const { increaseThree } = useSelector(state => state.tada.ecec.blabla);
-  const { blaqq } = useSelector(state => state.tada.hihi);
-  const test = useSelector(state => state.tada.ecec.blabla)
-  const soso = useSelector(state => state.tada.hihi.ola)
-  const blaqq1 = useSelector(state => state.tada.hihi.blaqq)
+  // const count = useSelector(state => state.app.count);
+  // const { countTwo } = useSelector(state => state.app);
+  // const app = useSelector(state => state.app);
+  // const { increaseThree } = useSelector(state => state.tada.ecec.blabla);
+  // const { blaqq } = useSelector(state => state.tada.hihi);
+  // const test = useSelector(state => state.tada.ecec.blabla)
+  const soso = useSelector(state => state.tada.hihi.ccc)
+  // const blaqq1 = useSelector(state => state.tada.hihi.blaqq)
 
   const dispatch = useDispatch();
 
@@ -27,7 +27,8 @@ function App() {
 
   const handleClick = () => {
     // dispatch(increaseAction())
-    dispatch(increaseThreeAction())
+    // dispatch(increaseThreeAction())
+    dispatch(testOlaAction());
   }
 
   return (
