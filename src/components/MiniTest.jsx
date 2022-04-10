@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 const MiniTest = () => {
   console.log('MiniTest rerender');
 
-  const { countTwo } = useSelector(state => state.app);
+  const count = useSelector(state => state.app.countTwo);
   const [la, setLa] = useState(false);
 
   const setLane = () => {

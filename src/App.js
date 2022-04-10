@@ -10,10 +10,11 @@ import useTest from './hooks/useTest';
 function App() {
   console.log('app rerender')
   // const { count } = useSelector(state => state.app);
+  const { countTwo } = useSelector(state => state.app);
 
   const dispatch = useDispatch();
 
-  const { wskData, turnOnWsk, turnoffWsk } = useConnectWsk()
+  // const { wskData, turnOnWsk, turnoffWsk } = useConnectWsk()
 
   // useTest();
 
@@ -24,9 +25,9 @@ function App() {
   return (
     <div className="App">
       <button onClick={handleClick}>Click</button>
-      <button onClick={() => { turnOnWsk() }}>Turn on wsk</button>
+      {/* <button onClick={() => { turnOnWsk() }}>Turn on wsk</button>
       <button onClick={turnoffWsk}>Turn off wsk</button>
-      <Test wskData={wskData} />
+      <Test wskData={wskData} /> */}
       <MiniTest />
     </div>
   );
